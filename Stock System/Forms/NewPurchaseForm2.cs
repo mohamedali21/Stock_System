@@ -1,4 +1,4 @@
-﻿using stock.busniess;
+﻿using Stock_System.Bussiness_Layer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

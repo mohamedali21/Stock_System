@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock_System.Mahmoud_Hassa
+namespace Stock_System.Bussiness_Layer
 {
     class productBusiness
     {

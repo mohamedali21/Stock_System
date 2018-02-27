@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using stock.busniess;
 using Stock_System;
+using Stock_System.Bussiness_Layer;
 
 namespace stock.forms
 {

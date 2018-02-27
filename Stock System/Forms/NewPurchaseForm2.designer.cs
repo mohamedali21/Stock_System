@@ -132,7 +132,7 @@
             this.allProductGridView.RowHeadersVisible = false;
             this.allProductGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.allProductGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.allProductGridView.Size = new System.Drawing.Size(626, 317);
+            this.allProductGridView.Size = new System.Drawing.Size(589, 317);
             this.allProductGridView.TabIndex = 61;
             this.allProductGridView.DoubleClick += new System.EventHandler(this.allProductGridView_DoubleClick);
             // 
@@ -316,7 +316,7 @@
             this.Company,
             this.Qty,
             this.Exp});
-            this.selectedProductGridView.Location = new System.Drawing.Point(563, 163);
+            this.selectedProductGridView.Location = new System.Drawing.Point(611, 163);
             this.selectedProductGridView.MultiSelect = false;
             this.selectedProductGridView.Name = "selectedProductGridView";
             this.selectedProductGridView.RowHeadersVisible = false;
@@ -324,7 +324,7 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.selectedProductGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.selectedProductGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.selectedProductGridView.Size = new System.Drawing.Size(670, 322);
+            this.selectedProductGridView.Size = new System.Drawing.Size(622, 322);
             this.selectedProductGridView.TabIndex = 62;
             this.selectedProductGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectedProductGridView_CellEndEdit);
             this.selectedProductGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.selectedProductGridView_RowsAdded);

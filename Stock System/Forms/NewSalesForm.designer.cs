@@ -130,7 +130,7 @@
             this.allProductGridView.RowHeadersVisible = false;
             this.allProductGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.allProductGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.allProductGridView.Size = new System.Drawing.Size(586, 325);
+            this.allProductGridView.Size = new System.Drawing.Size(575, 325);
             this.allProductGridView.TabIndex = 61;
             this.allProductGridView.DoubleClick += new System.EventHandler(this.allProductGridView_DoubleClick);
             // 

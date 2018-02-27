@@ -57,14 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="busniess\Emp_Sales_Reports.cs" />
+    <Compile Include="Bussiness Layer\Emp_Sales_Reports.cs" />
     <Compile Include="Bussiness Layer\EmployeeReportsQ.cs" />
     <Compile Include="Bussiness Layer\CustomerQ.cs" />
     <Compile Include="Bussiness Layer\EmpAttendanceQ.cs" />
     <Compile Include="Bussiness Layer\EmployeeQ.cs" />
     <Compile Include="Bussiness Layer\EmpSalesReportQ.cs" />
     <Compile Include="Bussiness Layer\productBusiness.cs" />
-    <Compile Include="Bussiness Layer\ProductQ.cs" />
     <Compile Include="Bussiness Layer\ReturnedPurchaseQ.cs" />
     <Compile Include="Bussiness Layer\ReturnedSalesQ.cs" />
     <Compile Include="Bussiness Layer\StockQ.cs" />
@@ -178,9 +177,9 @@
     <Compile Include="Forms\ProductReport.designer.cs">
       <DependentUpon>ProductReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="busniess\PurchaseInvoice.cs" />
-    <Compile Include="busniess\Reports.cs" />
-    <Compile Include="busniess\SalesInvoice.cs" />
+    <Compile Include="Bussiness Layer\PurchaseInvoice.cs" />
+    <Compile Include="Bussiness Layer\Reports.cs" />
+    <Compile Include="Bussiness Layer\SalesInvoice.cs" />
     <Compile Include="Forms\StocksForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,9 +247,9 @@
     <Compile Include="Supplier.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="VM\EmployeeVM.cs" />
-    <Compile Include="VM\PurchaseOrderVM.cs" />
-    <Compile Include="VM\SalesOrderVM.cs" />
+    <Compile Include="Bussiness Layer\ViewModel\EmployeeVM.cs" />
+    <Compile Include="Bussiness Layer\ViewModel\PurchaseOrderVM.cs" />
+    <Compile Include="Bussiness Layer\ViewModel\SalesOrderVM.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\ReturnedPurshaseDetailsForm.cs">
