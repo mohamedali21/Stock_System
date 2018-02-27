@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rate" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Sales_Order" Relationship="Model.FK_Sales_Order_Customer" FromRole="Customer" ToRole="Sales_Order" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="N_Id" Type="String" MaxLength="14" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employee_Attendance" Relationship="Self.FK_Employee_Attendance_Employee" FromRole="Employee" ToRole="Employee_Attendance" />
+    <NavigationProperty Name="Employee_Salary" Relationship="Self.FK_Employee_Salary_Employee" FromRole="Employee" ToRole="Employee_Salary" />
+    <NavigationProperty Name="Logins" Relationship="Model.FK_Logs_Employee1" FromRole="Employee" ToRole="Login" />
+    <NavigationProperty Name="Order_Employee" Relationship="Model.FK_Order_Customer_Employee_Employee1" FromRole="Employee" ToRole="Order_Employee" />
+    <NavigationProperty Name="Orders" Relationship="Model.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Employee_Attendance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ArrivedTime" Type="Time" Precision="7" />
+    <Property Name="LeftTime" Type="Time" Precision="7" />
+    <Property Name="Employee_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Attendance_Employee" FromRole="Employee_Attendance" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Employee_Salary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="BaseSalary" Type="Double" Nullable="false" />
+    <Property Name="Bouns" Type="Double" />
+    <Property Name="Minus" Type="Double" />
+    <Property Name="TotalSalary" Type="Double" Nullable="false" />
+    <Property Name="Employee_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Salary_Employee" FromRole="Employee_Salary" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Purchase_Order" Relationship="Self.FK_Purchase_Order_Order" FromRole="Order" ToRole="Purchase_Order" />
+    <NavigationProperty Name="Sales_Order" Relationship="Self.FK_Sales_Order_Order" FromRole="Order" ToRole="Sales_Order" />
+    <Property Name="Emp_Id" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Model.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
+    <NavigationProperty Name="Order_Employee" Relationship="Model.FK_Order_Customer_Employee_Order1" FromRole="Order" ToRole="Order_Employee" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Discription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SalePrice" Type="Double" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Purchase_Order_Detalis" Relationship="Self.FK_Purchase_Order_Detalis_Product" FromRole="Product" ToRole="Purchase_Order_Detalis" />
+    <NavigationProperty Name="Purchase_Returned_Cheque_Details" Relationship="Self.FK_Purchase_Returned_Cheque_Details_Product" FromRole="Product" ToRole="Purchase_Returned_Cheque_Details" />
+    <NavigationProperty Name="Sales_Order_Details" Relationship="Self.FK_Sales_Order_Details_Product" FromRole="Product" ToRole="Sales_Order_Details" />
+    <NavigationProperty Name="Sales_Returned_Cheque_Details" Relationship="Self.FK_Sales_Returned_Cheque_Details_Product" FromRole="Product" ToRole="Sales_Returned_Cheque_Details" />
+  </EntityType>
+  <EntityType Name="Purchase_Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceNo" Type="Int32" Nullable="false" />
+    <Property Name="RecivedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IssuedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumOfProducts" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceAmount" Type="Int32" Nullable="false" />
+    <Property Name="Order_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Purchase_Order_Order" FromRole="Purchase_Order" ToRole="Order" />
+    <NavigationProperty Name="Purchase_Order_Detalis" Relationship="Self.FK_Purchase_Order_Detalis_Purchase_Order" FromRole="Purchase_Order" ToRole="Purchase_Order_Detalis" />
+    <NavigationProperty Name="Purchase_Returned_Cheque" Relationship="Self.FK_Purchase_Returned_Cheque_Purchase_Order" FromRole="Purchase_Order" ToRole="Purchase_Returned_Cheque" />
+    <Property Name="Supplier_Id" Type="Int32" />
+    <NavigationProperty Name="Supplier" Relationship="Model.FK_Purchase_Order_Supplier" FromRole="Purchase_Order" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="Purchase_Order_Detalis">
+    <Key>
+      <PropertyRef Name="Pruchase_Order_Id" />
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="Pruchase_Order_Id" Type="Int32" Nullable="false" />
+    <Property Name="Product_Id" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="ExpiredDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Purchase_Order_Detalis_Product" FromRole="Purchase_Order_Detalis" ToRole="Product" />
+    <NavigationProperty Name="Purchase_Order" Relationship="Self.FK_Purchase_Order_Detalis_Purchase_Order" FromRole="Purchase_Order_Detalis" ToRole="Purchase_Order" />
+    <NavigationProperty Name="Stocks" Relationship="Self.Stock_Purchase_Order_Details" FromRole="Purchase_Order_Detalis" ToRole="Stock" />
+    <NavigationProperty Name="Purchase_Returned_Cheque_Details" Relationship="Model.FK_Purchase_Returned_Cheque_Details_Purchase_Order_Detalis" FromRole="Purchase_Order_Detalis" ToRole="Purchase_Returned_Cheque_Details" />
+  </EntityType>
+  <EntityType Name="Purchase_Returned_Cheque">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumOfPriducts" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Purchase_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Purchase_Order" Relationship="Self.FK_Purchase_Returned_Cheque_Purchase_Order" FromRole="Purchase_Returned_Cheque" ToRole="Purchase_Order" />
+    <NavigationProperty Name="Purchase_Returned_Cheque_Details" Relationship="Self.FK_Purchase_Returned_Cheque_Details_Purchase_Returned_Cheque" FromRole="Purchase_Returned_Cheque" ToRole="Purchase_Returned_Cheque_Details" />
+  </EntityType>
+  <EntityType Name="Purchase_Returned_Cheque_Details">
+    <Key>
+      <PropertyRef Name="Product_Id" />
+      <PropertyRef Name="Purchase_Returned_Cheque_Id" />
+      <PropertyRef Name="Purchase_Order_Id" />
+    </Key>
+    <Property Name="Product_Id" Type="Int32" Nullable="false" />
+    <Property Name="Purchase_Returned_Cheque_Id" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Purchase_Returned_Cheque_Details_Product" FromRole="Purchase_Returned_Cheque_Details" ToRole="Product" />
+    <NavigationProperty Name="Purchase_Returned_Cheque" Relationship="Self.FK_Purchase_Returned_Cheque_Details_Purchase_Returned_Cheque" FromRole="Purchase_Returned_Cheque_Details" ToRole="Purchase_Returned_Cheque" />
+    <Property Name="Purchase_Order_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Purchase_Order_Detalis" Relationship="Model.FK_Purchase_Returned_Cheque_Details_Purchase_Order_Detalis" FromRole="Purchase_Returned_Cheque_Details" ToRole="Purchase_Order_Detalis" />
+  </EntityType>
+  <EntityType Name="Sales_Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="NumOfProducts" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceAmount" Type="Double" Nullable="false" />
+    <Property Name="InvoiceDiscount" Type="Double" />
+    <Property Name="TotalAmount" Type="Double" Nullable="false" />
+    <Property Name="Order_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Sales_Order_Order" FromRole="Sales_Order" ToRole="Order" />
+    <NavigationProperty Name="Sales_Order_Details" Relationship="Self.FK_Sales_Order_Details_Sales_Order" FromRole="Sales_Order" ToRole="Sales_Order_Details" />
+    <NavigationProperty Name="Sales_Returned_Cheque" Relationship="Self.FK_Sales_Returns_Sales_Order" FromRole="Sales_Order" ToRole="Sales_Returned_Cheque" />
+    <Property Name="Customer_Id" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Model.FK_Sales_Order_Customer" FromRole="Sales_Order" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Sales_Order_Details">
+    <Key>
+      <PropertyRef Name="Sales_Order_Id" />
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="Sales_Order_Id" Type="Int32" Nullable="false" />
+    <Property Name="Product_Id" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ExpiredDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Sales_Order_Details_Product" FromRole="Sales_Order_Details" ToRole="Product" />
+    <NavigationProperty Name="Sales_Order" Relationship="Self.FK_Sales_Order_Details_Sales_Order" FromRole="Sales_Order_Details" ToRole="Sales_Order" />
+    <NavigationProperty Name="Stocks" Relationship="Self.Stock_Sales_Order_Details" FromRole="Sales_Order_Details" ToRole="Stock" />
+  </EntityType>
+  <EntityType Name="Sales_Returned_Cheque">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumOfProducts" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Sales_Order_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sales_Order" Relationship="Self.FK_Sales_Returns_Sales_Order" FromRole="Sales_Returned_Cheque" ToRole="Sales_Order" />
+    <NavigationProperty Name="Sales_Returned_Cheque_Details" Relationship="Self.FK_Sales_Returned_Cheque_Details_Sales_Returned_Cheque" FromRole="Sales_Returned_Cheque" ToRole="Sales_Returned_Cheque_Details" />
+  </EntityType>
+  <EntityType Name="Sales_Returned_Cheque_Details">
+    <Key>
+      <PropertyRef Name="Product_Id" />
+      <PropertyRef Name="Sales_Returned_Cheque_Id" />
+    </Key>
+    <Property Name="Product_Id" Type="Int32" Nullable="false" />
+    <Property Name="Sales_Returned_Cheque_Id" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Sales_Returned_Cheque_Details_Product" FromRole="Sales_Returned_Cheque_Details" ToRole="Product" />
+    <NavigationProperty Name="Sales_Returned_Cheque" Relationship="Self.FK_Sales_Returned_Cheque_Details_Sales_Returned_Cheque" FromRole="Sales_Returned_Cheque_Details" ToRole="Sales_Returned_Cheque" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Purchase_Order_Detalis" Relationship="Self.Stock_Purchase_Order_Details" FromRole="Stock" ToRole="Purchase_Order_Detalis" />
+    <NavigationProperty Name="Sales_Order_Details" Relationship="Self.Stock_Sales_Order_Details" FromRole="Stock" ToRole="Sales_Order_Details" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rate" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Purchase_Order" Relationship="Model.FK_Purchase_Order_Supplier" FromRole="Supplier" ToRole="Purchase_Order" />
+  </EntityType>
+  <Association Name="FK_Employee_Attendance_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Employee_Attendance" Type="Self.Employee_Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee_Attendance">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Salary_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Employee_Salary" Type="Self.Employee_Salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee_Salary">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Order_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase_Order">
+        <PropertyRef Name="Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Order_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales_Order">
+        <PropertyRef Name="Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Order_Detalis_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Purchase_Order_Detalis" Type="Self.Purchase_Order_Detalis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase_Order_Detalis">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Returned_Cheque_Details_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Purchase_Returned_Cheque_Details" Type="Self.Purchase_Returned_Cheque_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase_Returned_Cheque_Details">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Order_Details_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Sales_Order_Details" Type="Self.Sales_Order_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales_Order_Details">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Returned_Cheque_Details_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Sales_Returned_Cheque_Details" Type="Self.Sales_Returned_Cheque_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales_Returned_Cheque_Details">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Order_Detalis_Purchase_Order">
+    <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="1" />
+    <End Role="Purchase_Order_Detalis" Type="Self.Purchase_Order_Detalis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase_Order_Detalis">
+        <PropertyRef Name="Pruchase_Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Returned_Cheque_Purchase_Order">
+    <End Role="Purchase_Order" Type="Self.Purchase_Order" Multiplicity="1" />
+    <End Role="Purchase_Returned_Cheque" Type="Self.Purchase_Returned_Cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase_Returned_Cheque">
+        <PropertyRef Name="Purchase_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Returned_Cheque_Details_Purchase_Returned_Cheque">
+    <End Role="Purchase_Returned_Cheque" Type="Self.Purchase_Returned_Cheque" Multiplicity="1" />
+    <End Role="Purchase_Returned_Cheque_Details" Type="Self.Purchase_Returned_Cheque_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_Returned_Cheque">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase_Returned_Cheque_Details">
+        <PropertyRef Name="Purchase_Returned_Cheque_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Order_Details_Sales_Order">
+    <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="1" />
+    <End Role="Sales_Order_Details" Type="Self.Sales_Order_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales_Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales_Order_Details">
+        <PropertyRef Name="Sales_Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Returns_Sales_Order">
+    <End Role="Sales_Order" Type="Self.Sales_Order" Multiplicity="1" />
+    <End Role="Sales_Returned_Cheque" Type="Self.Sales_Returned_Cheque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales_Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales_Returned_Cheque">
+        <PropertyRef Name="Sales_Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sales_Returned_Cheque_Details_Sales_Returned_Cheque">
+    <End Role="Sales_Returned_Cheque" Type="Self.Sales_Returned_Cheque" Multiplicity="1" />
+    <End Role="Sales_Returned_Cheque_Details" Type="Self.Sales_Returned_Cheque_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales_Returned_Cheque">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales_Returned_Cheque_Details">
+        <PropertyRef Name="Sales_Returned_Cheque_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Stock_Purchase_Order_Details">
+    <End Role="Purchase_Order_Detalis" Type="Self.Purchase_Order_Detalis" Multiplicity="*" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+  </Association>
+  <Association Name="Stock_Sales_Order_Details">
+    <End Role="Sales_Order_Details" Type="Self.Sales_Order_Details" Multiplicity="*" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Stock_SystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Employee_Attendance" EntityType="Self.Employee_Attendance" />
+    <EntitySet Name="Employee_Salary" EntityType="Self.Employee_Salary" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Purchase_Order" EntityType="Self.Purchase_Order" />
+    <EntitySet Name="Purchase_Order_Detalis" EntityType="Self.Purchase_Order_Detalis" />
+    <EntitySet Name="Purchase_Returned_Cheque" EntityType="Self.Purchase_Returned_Cheque" />
+    <EntitySet Name="Purchase_Returned_Cheque_Details" EntityType="Self.Purchase_Returned_Cheque_Details" />
+    <EntitySet Name="Sales_Order" EntityType="Self.Sales_Order" />
+    <EntitySet Name="Sales_Order_Details" EntityType="Self.Sales_Order_Details" />
+    <EntitySet Name="Sales_Returned_Cheque" EntityType="Self.Sales_Returned_Cheque" />
+    <EntitySet Name="Sales_Returned_Cheque_Details" EntityType="Self.Sales_Returned_Cheque_Details" />
+    <EntitySet Name="Stocks" EntityType="Self.Stock" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <AssociationSet Name="FK_Employee_Attendance_Employee" Association="Self.FK_Employee_Attendance_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee_Attendance" EntitySet="Employee_Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Salary_Employee" Association="Self.FK_Employee_Salary_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Employee_Salary" EntitySet="Employee_Salary" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Order_Order" Association="Self.FK_Purchase_Order_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Order_Order" Association="Self.FK_Sales_Order_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Sales_Order" EntitySet="Sales_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Order_Detalis_Product" Association="Self.FK_Purchase_Order_Detalis_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Purchase_Order_Detalis" EntitySet="Purchase_Order_Detalis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Returned_Cheque_Details_Product" Association="Self.FK_Purchase_Returned_Cheque_Details_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Purchase_Returned_Cheque_Details" EntitySet="Purchase_Returned_Cheque_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Order_Details_Product" Association="Self.FK_Sales_Order_Details_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Sales_Order_Details" EntitySet="Sales_Order_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Returned_Cheque_Details_Product" Association="Self.FK_Sales_Returned_Cheque_Details_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Sales_Returned_Cheque_Details" EntitySet="Sales_Returned_Cheque_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Order_Detalis_Purchase_Order" Association="Self.FK_Purchase_Order_Detalis_Purchase_Order">
+      <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+      <End Role="Purchase_Order_Detalis" EntitySet="Purchase_Order_Detalis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Returned_Cheque_Purchase_Order" Association="Self.FK_Purchase_Returned_Cheque_Purchase_Order">
+      <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+      <End Role="Purchase_Returned_Cheque" EntitySet="Purchase_Returned_Cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Returned_Cheque_Details_Purchase_Returned_Cheque" Association="Self.FK_Purchase_Returned_Cheque_Details_Purchase_Returned_Cheque">
+      <End Role="Purchase_Returned_Cheque" EntitySet="Purchase_Returned_Cheque" />
+      <End Role="Purchase_Returned_Cheque_Details" EntitySet="Purchase_Returned_Cheque_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Order_Details_Sales_Order" Association="Self.FK_Sales_Order_Details_Sales_Order">
+      <End Role="Sales_Order" EntitySet="Sales_Order" />
+      <End Role="Sales_Order_Details" EntitySet="Sales_Order_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Returns_Sales_Order" Association="Self.FK_Sales_Returns_Sales_Order">
+      <End Role="Sales_Order" EntitySet="Sales_Order" />
+      <End Role="Sales_Returned_Cheque" EntitySet="Sales_Returned_Cheque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sales_Returned_Cheque_Details_Sales_Returned_Cheque" Association="Self.FK_Sales_Returned_Cheque_Details_Sales_Returned_Cheque">
+      <End Role="Sales_Returned_Cheque" EntitySet="Sales_Returned_Cheque" />
+      <End Role="Sales_Returned_Cheque_Details" EntitySet="Sales_Returned_Cheque_Details" />
+    </AssociationSet>
+    <AssociationSet Name="Stock_Purchase_Order_Details" Association="Self.Stock_Purchase_Order_Details">
+      <End Role="Purchase_Order_Detalis" EntitySet="Purchase_Order_Detalis" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+    <AssociationSet Name="Stock_Sales_Order_Details" Association="Self.Stock_Sales_Order_Details">
+      <End Role="Sales_Order_Details" EntitySet="Sales_Order_Details" />
+      <End Role="Stock" EntitySet="Stocks" />
+    </AssociationSet>
+    <FunctionImport Name="Delete_Employee">
+      <Parameter Name="Emp_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Display_Customer">
+      <Parameter Name="ColumnName" Mode="In" Type="String" />
+      <Parameter Name="Value" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Display_Employee" EntitySet="Employees" ReturnType="Collection(Model.Employee)">
+      <Parameter Name="ColumnName" Mode="In" Type="String" />
+      <Parameter Name="Value" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Display_Supplier">
+      <Parameter Name="ColumnName" Mode="In" Type="String" />
+      <Parameter Name="Value" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_User">
+      <Parameter Name="N_Id" Mode="In" Type="String" />
+      <Parameter Name="Emp_Name" Mode="In" Type="String" />
+      <Parameter Name="phone" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="Job_Tiltle" Mode="In" Type="String" />
+      <Parameter Name="Hire_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Logins" EntityType="Model.Login" />
+    <EntitySet Name="Order_Employee" EntityType="Model.Order_Employee" />
+    <AssociationSet Name="FK_Sales_Order_Customer" Association="Model.FK_Sales_Order_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Sales_Order" EntitySet="Sales_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Logs_Employee1" Association="Model.FK_Logs_Employee1">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Login" EntitySet="Logins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Customer_Employee_Employee1" Association="Model.FK_Order_Customer_Employee_Employee1">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Order_Employee" EntitySet="Order_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Employee" Association="Model.FK_Order_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Customer_Employee_Order1" Association="Model.FK_Order_Customer_Employee_Order1">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Order_Employee" EntitySet="Order_Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Order_Supplier" Association="Model.FK_Purchase_Order_Supplier">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Purchase_Order" EntitySet="Purchase_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Returned_Cheque_Details_Purchase_Order_Detalis" Association="Model.FK_Purchase_Returned_Cheque_Details_Purchase_Order_Detalis">
+      <End Role="Purchase_Order_Detalis" EntitySet="Purchase_Order_Detalis" />
+      <End Role="Purchase_Returned_Cheque_Details" EntitySet="Purchase_Returned_Cheque_Details" />
+    </AssociationSet>
+    <FunctionImport Name="Create_Purchase_Order_Proc">
+      <Parameter Name="Order_Type" Mode="In" Type="String" />
+      <Parameter Name="Supplier_Phone" Mode="In" Type="String" />
+      <Parameter Name="User_Name" Mode="In" Type="String" />
+      <Parameter Name="Invoice_No" Mode="In" Type="Int32" />
+      <Parameter Name="Recieved_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Issued_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Payment_Type" Mode="In" Type="String" />
+      <Parameter Name="Num_Of_Product" Mode="In" Type="Int32" />
+      <Parameter Name="Invoice_Amount" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Sales_Order">
+      <Parameter Name="EmployeeUserName" Mode="In" Type="String" />
+      <Parameter Name="Customerphone" Mode="In" Type="String" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="Invoice_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="NumberOfProducts" Mode="In" Type="Int32" />
+      <Parameter Name="invoiceAmount" Mode="In" Type="Double" />
+      <Parameter Name="invoiceDiscount" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="Insert_Sales_Order_Details">
+      <Parameter Name="Sales_Order_Id" Mode="In" Type="Int32" />
+      <Parameter Name="product_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="ExpiredDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Stock_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Returned_Sales">
+      <Parameter Name="product_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Sales_Returned_Cheque_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Employee_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Model.FK_Logs_Employee1" FromRole="Login" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Order_Employee">
+    <Key>
+      <PropertyRef Name="Order_Id" />
+      <PropertyRef Name="Customer_Id" />
+      <PropertyRef Name="Employee_Id" />
+    </Key>
+    <Property Name="Order_Id" Type="Int32" Nullable="false" />
+    <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+    <Property Name="Employee_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Model.FK_Order_Customer_Employee_Employee1" FromRole="Order_Employee" ToRole="Employee" />
+    <NavigationProperty Name="Order" Relationship="Model.FK_Order_Customer_Employee_Order1" FromRole="Order_Employee" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_Sales_Order_Customer">
+    <End Type="Model.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="Model.Sales_Order" Role="Sales_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales_Order">
+        <PropertyRef Name="Customer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Logs_Employee1">
+    <End Type="Model.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="Model.Login" Role="Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Customer_Employee_Employee1">
+    <End Type="Model.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="Model.Order_Employee" Role="Order_Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order_Employee">
+        <PropertyRef Name="Employee_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Employee">
+    <End Type="Model.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="Model.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Emp_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Customer_Employee_Order1">
+    <End Type="Model.Order" Role="Order" Multiplicity="1" />
+    <End Type="Model.Order_Employee" Role="Order_Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order_Employee">
+        <PropertyRef Name="Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Order_Supplier">
+    <End Type="Model.Supplier" Role="Supplier" Multiplicity="0..1" />
+    <End Type="Model.Purchase_Order" Role="Purchase_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase_Order">
+        <PropertyRef Name="Supplier_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Returned_Cheque_Details_Purchase_Order_Detalis">
+    <End Type="Model.Purchase_Order_Detalis" Role="Purchase_Order_Detalis" Multiplicity="1" />
+    <End Type="Model.Purchase_Returned_Cheque_Details" Role="Purchase_Returned_Cheque_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase_Order_Detalis">
+        <PropertyRef Name="Pruchase_Order_Id" />
+        <PropertyRef Name="Product_Id" />
+      </Principal>
+      <Dependent Role="Purchase_Returned_Cheque_Details">
+        <PropertyRef Name="Purchase_Order_Id" />
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

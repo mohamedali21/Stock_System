@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Stock_SystemEntities">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="Model.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Model.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="N_Id" ColumnName="N_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Attendance">
+      <EntityTypeMapping TypeName="Model.Employee_Attendance">
+        <MappingFragment StoreEntitySet="Employee_Attendance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ArrivedTime" ColumnName="ArrivedTime" />
+          <ScalarProperty Name="LeftTime" ColumnName="LeftTime" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Salary">
+      <EntityTypeMapping TypeName="Model.Employee_Salary">
+        <MappingFragment StoreEntitySet="Employee_Salary">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="BaseSalary" ColumnName="BaseSalary" />
+          <ScalarProperty Name="Bouns" ColumnName="Bouns" />
+          <ScalarProperty Name="Minus" ColumnName="Minus" />
+          <ScalarProperty Name="TotalSalary" ColumnName="TotalSalary" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="Model.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="Model.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Model.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Discription" ColumnName="Discription" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_Order">
+      <EntityTypeMapping TypeName="Model.Purchase_Order">
+        <MappingFragment StoreEntitySet="Purchase_Order">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="RecivedDate" ColumnName="RecivedDate" />
+          <ScalarProperty Name="IssuedDate" ColumnName="IssuedDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="NumOfProducts" ColumnName="NumOfProducts" />
+          <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+          <ScalarProperty Name="Paid_Amount" ColumnName="Paid_Amount" />
+          <ScalarProperty Name="Remain_Amount" ColumnName="Remain_Amount" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="Supplier_Id" ColumnName="Supplier_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_Order_Detalis">
+      <EntityTypeMapping TypeName="Model.Purchase_Order_Detalis">
+        <MappingFragment StoreEntitySet="Purchase_Order_Detalis">
+          <ScalarProperty Name="Pruchase_Order_Id" ColumnName="Pruchase_Order_Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_Returned_Cheque">
+      <EntityTypeMapping TypeName="Model.Purchase_Returned_Cheque">
+        <MappingFragment StoreEntitySet="Purchase_Returned_Cheque">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumOfPriducts" ColumnName="NumOfPriducts" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Purchase_Id" ColumnName="Purchase_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase_Returned_Cheque_Details">
+      <EntityTypeMapping TypeName="Model.Purchase_Returned_Cheque_Details">
+        <MappingFragment StoreEntitySet="Purchase_Returned_Cheque_Details">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Purchase_Returned_Cheque_Id" ColumnName="Purchase_Returned_Cheque_Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Order">
+      <EntityTypeMapping TypeName="Model.Sales_Order">
+        <MappingFragment StoreEntitySet="Sales_Order">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="NumOfProducts" ColumnName="NumOfProducts" />
+          <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+          <ScalarProperty Name="InvoiceDiscount" ColumnName="InvoiceDiscount" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+          <ScalarProperty Name="RemainAmount" ColumnName="RemainAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Order_Details">
+      <EntityTypeMapping TypeName="Model.Sales_Order_Details">
+        <MappingFragment StoreEntitySet="Sales_Order_Details">
+          <ScalarProperty Name="Sales_Order_Id" ColumnName="Sales_Order_Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Returned_Cheque">
+      <EntityTypeMapping TypeName="Model.Sales_Returned_Cheque">
+        <MappingFragment StoreEntitySet="Sales_Returned_Cheque">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumOfProducts" ColumnName="NumOfProducts" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Sales_Order_Id" ColumnName="Sales_Order_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales_Returned_Cheque_Details">
+      <EntityTypeMapping TypeName="Model.Sales_Returned_Cheque_Details">
+        <MappingFragment StoreEntitySet="Sales_Returned_Cheque_Details">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Sales_Returned_Cheque_Id" ColumnName="Sales_Returned_Cheque_Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="Model.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="Model.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Order_Employee" TypeName="Model.Order_Employee" StoreEntitySet="Order_Employee">
+      <EndProperty Name="Employee">
+        <ScalarProperty Name="Id" ColumnName="Employee_Id" />
+      </EndProperty>
+      <EndProperty Name="Order">
+        <ScalarProperty Name="Id" ColumnName="Order_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Stock_Purchase_Order_Details" TypeName="Model.Stock_Purchase_Order_Details" StoreEntitySet="Stock_Purchase_Order_Details">
+      <EndProperty Name="Purchase_Order_Detalis">
+        <ScalarProperty Name="Pruchase_Order_Id" ColumnName="Purchase_Order_Id" />
+        <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+      </EndProperty>
+      <EndProperty Name="Stock">
+        <ScalarProperty Name="Id" ColumnName="Stock_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Stock_Sales_Order_Details" TypeName="Model.Stock_Sales_Order_Details" StoreEntitySet="Stock_Sales_Order_Details">
+      <EndProperty Name="Sales_Order_Details">
+        <ScalarProperty Name="Sales_Order_Id" ColumnName="Sales_Order_Id" />
+        <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+      </EndProperty>
+      <EndProperty Name="Stock">
+        <ScalarProperty Name="Id" ColumnName="Stock_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="Create_Salles_Order_Proc" FunctionName="Model.Store.Create_Salles_Order_Proc" />
+    <FunctionImportMapping FunctionImportName="CreatePurchaseOrderProc2" FunctionName="Model.Store.CreatePurchaseOrderProc2" />
+    <FunctionImportMapping FunctionImportName="Delete_Employee" FunctionName="Model.Store.Delete_Employee" />
+    <FunctionImportMapping FunctionImportName="Delete_Retuned_Sales_Invoice" FunctionName="Model.Store.Delete_Retuned_Sales_Invoice" />
+    <FunctionImportMapping FunctionImportName="Emp_Invoices" FunctionName="Model.Store.Emp_Invoices">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.Emp_Invoices_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="National_ID" ColumnName="National ID" />
+          <ScalarProperty Name="Number_of_Invoices" ColumnName="Number of Invoices" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Emp_Returned_Sales_Invoices" FunctionName="Model.Store.Emp_Returned_Sales_Invoices">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.Emp_Returned_Sales_Invoices_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Returned_Quantity" ColumnName="Returned Quantity" />
+          <ScalarProperty Name="Returned_Total_Price" ColumnName="Returned Total Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Emp_Sales_Invoices" FunctionName="Model.Store.Emp_Sales_Invoices">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.Emp_Sales_Invoices_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Sales_Total_Amount" ColumnName="Sales Total Amount" />
+          <ScalarProperty Name="Invoice_Quantity" ColumnName="Invoice Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Insert_Purchase_Order_Detalis_Proc" FunctionName="Model.Store.Insert_Purchase_Order_Detalis_Proc" />
+    <FunctionImportMapping FunctionImportName="Insert_Sales_Order" FunctionName="Model.Store.Insert_Sales_Order" />
+    <FunctionImportMapping FunctionImportName="Insert_Sales_Order_Details" FunctionName="Model.Store.Insert_Sales_Order_Details" />
+    <FunctionImportMapping FunctionImportName="Insert_Sales_Order_Detalis_Proc" FunctionName="Model.Store.Insert_Sales_Order_Detalis_Proc" />
+    <FunctionImportMapping FunctionImportName="Insert_User" FunctionName="Model.Store.Insert_User" />
+    <FunctionImportMapping FunctionImportName="prudctReport" FunctionName="Model.Store.prudctReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.prudctReport_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="prudctReportWithInterval" FunctionName="Model.Store.prudctReportWithInterval">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.prudctReportWithInterval_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Returned_Sales" FunctionName="Model.Store.Returned_Sales" />
+    <FunctionImportMapping FunctionImportName="Delete_Retuned_Purchase_Invoice" FunctionName="Model.Store.Delete_Retuned_Purchase_Invoice" />
+  </EntityContainerMapping>
+</Mapping>

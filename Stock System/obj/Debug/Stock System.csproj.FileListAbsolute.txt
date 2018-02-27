@@ -1,0 +1,31 @@
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\bin\Debug\Stock System.exe.config
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\bin\Debug\Stock System.exe
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\bin\Debug\Stock System.pdb
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\bin\Debug\EntityFramework.dll
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\bin\Debug\EntityFramework.xml
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.CustomerForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.EmployeeForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.Login.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\stock.forms.purchaseInvoiceReport.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\stock.forms.MainForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\stock.forms.NewPurchaseForm2.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\stock.forms.NewSalesForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\stock.forms.PurchaseDetailesForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\stock.forms.SalesDetailesForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\stock.forms.SalesReport.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.ProductReport.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.Properties.Resources.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.ReturnedPurshaseDetailsForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.ReturnedSalesDetailsForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.ReturnedOdersForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.StocksForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.SupplierForm.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock System.csproj.GenerateResource.Cache
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock System.exe
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock System.pdb
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.Forms.Emp_SalesReports.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock System.csprojResolveAssemblyReference.cache
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.Products.resources
+C:\Users\Mohamed Ali\Documents\Visual Studio 2015\Projects\Stock System\Stock System\obj\Debug\Stock_System.EmpAttendanceForm.resources
