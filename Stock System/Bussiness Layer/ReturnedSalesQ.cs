@@ -119,13 +119,7 @@ namespace Stock_System.Bussiness_Layer
             }
             return totalAmount;
         }
-        public static Sales_Returned_Cheque lastReturnedOrder()
-        {
-             return   (Program.context.Sales_Returned_Cheque
-                                .OrderByDescending(o => o.Id)
-                                .Select(o => o)
-                                .FirstOrDefault());
-        }
+        
         public static bool ReturnedItemCheck(int prodID, int invoiceID)
         {
             int returnedOderId = ReturnedOrder(invoiceID).Id;

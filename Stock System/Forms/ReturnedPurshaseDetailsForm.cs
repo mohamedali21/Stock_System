@@ -14,7 +14,7 @@ namespace Stock_System
     public partial class ReturnedPurshaseDetailsForm : Form
     {
         public event EventHandler returnedChanged;
-        int selectedIndex,returnedOrderID, invoiceID, selectedIndexOfReturnedList, returnedProdID = -1, prodID = -1;
+        int selectedIndex, invoiceID, selectedIndexOfReturnedList, returnedProdID = -1, prodID = -1;
         public ReturnedPurshaseDetailsForm(int invoiceID)
         {
             this.invoiceID = invoiceID;
@@ -33,7 +33,6 @@ namespace Stock_System
             issueDateTextBox.Text = PO.IssuedDate.Date.ToString();
             receiveDateTextBox.Text = PO.RecivedDate.Date.ToString();
             invoiceNoTextBox.Text = PO.InvoiceNo.ToString();
-            returnedOrderID = ReturnedPurchaseQ.lastReturnedOrder().Id;
             invoiceItemsDdataGridView.DataSource = ReturnedPurchaseQ.DisplayInvoice(invoiceID);
             DisplayReturendItems();
         }

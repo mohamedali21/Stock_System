@@ -6,7 +6,7 @@ namespace Stock_System
     public partial class ReturnedSalesDetailsForm : Form
     {
         public event EventHandler returenedChanged;
-        int index, selectedIndex, selectedIndexOfReturnedList, invoiceID, returnedOrderID, returnedProdID=-1, prodID=-1;
+        int  selectedIndex, selectedIndexOfReturnedList, invoiceID, returnedProdID=-1, prodID=-1;
         public ReturnedSalesDetailsForm(int invoiceID)
         {
             this.invoiceID = invoiceID;
@@ -60,7 +60,6 @@ namespace Stock_System
         private void ReturnedSalesForm_Load(object sender, EventArgs e)
         {
             ReturnedSalesQ.AddReurnedInvoice(invoiceID);
-            returnedOrderID = ReturnedSalesQ.lastReturnedOrder().Id;
             Sales_Order SO = ReturnedSalesQ.SOrder(invoiceID);
             invoiceDateTextBox.Text = SO.Date.Date.ToString();
             invoiceNoTextBox.Text = SO.Id.ToString();
@@ -108,7 +107,6 @@ namespace Stock_System
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-            index = int.Parse(invoiceItemsDdataGridView.CurrentRow.Index.ToString());
             selectedIndex = invoiceItemsDdataGridView.CurrentRow.Index;
             prodID = int.Parse(invoiceItemsDdataGridView.Rows[selectedIndex].Cells[0].Value.ToString());
             prodNameTextBox.Text = invoiceItemsDdataGridView.Rows[selectedIndex].Cells[1].Value.ToString();
